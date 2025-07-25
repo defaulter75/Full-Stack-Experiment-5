@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <form class="form">
+      <h2>Sign In</h2>
+      
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+
+      <div class="age-group">
+        <label for="age">Age</label>
+        <div class="age-input">
+          <button type="button" onclick="changeAge(1)">&#9650;</button> <!-- ▲ -->
+          <input type="number" id="age" value="18" min="1" readonly />
+          <button type="button" onclick="changeAge(-1)">&#9660;</button> <!-- ▼ -->
+        </div>
+      </div>
+
+      <div class="options">
+        <label><input type="checkbox" /> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button class="signin-btn" type="submit">Sign in</button>
+    </form>
+  </div>
+
+  <script>
+    function changeAge(delta) {
+      const ageInput = document.getElementById('age');
+      let current = parseInt(ageInput.value);
+      if (current + delta >= 1) {
+        ageInput.value = current + delta;
+      }
+    }
+  </script>
+</body>
+</html>
