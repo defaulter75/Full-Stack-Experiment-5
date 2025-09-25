@@ -1,8 +1,6 @@
 const express=require("express");
-//const express = require('express');
-//const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-//const app = express();
+
 const port = 3000;
 
 const app = express();
@@ -112,6 +110,6 @@ app.delete('/api/cards/:id', (req, res) => {
     res.status(204).send();
 });
 
-// server 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));  
