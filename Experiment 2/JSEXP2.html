@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Product Filter with Dropdown</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    select {
+      padding: 8px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Product List</h2>
+  
+  <!-- Dropdown Menu -->
+  <label for="categoryFilter">Filter by Category:</label>
+  <select id="categoryFilter">
+    <option value="all">All</option>
+    <option value="shoes">Shoes</option>
+    <option value="shirts">Shirts</option>
+    <option value="gadgets">Gadgets</option>
+  </select>
+
+  <!-- Product List -->
+  <div id="productList">
+    <div class="product" data-category="shoes">Running Shoes</div>
+    <div class="product" data-category="shoes">Leather Boots</div>
+    <div class="product" data-category="shirts">Casual Shirt</div>
+    <div class="product" data-category="shirts">Formal Shirt</div>
+    <div class="product" data-category="gadgets">Smartphone</div>
+    <div class="product" data-category="gadgets">Bluetooth Speaker</div>
+  </div>
+
+  <script>
+    const filterDropdown = document.getElementById('categoryFilter');
+    const products = document.querySelectorAll('.product');
+
+    filterDropdown.addEventListener('change', function() {
+      const selectedCategory = this.value;
+
+      products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+
+        if (selectedCategory === 'all' || productCategory === selectedCategory) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

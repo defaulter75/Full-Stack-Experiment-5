@@ -1,0 +1,83 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+}
+
+/* Layout */
+.header {
+    grid-area: header;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f0f0f0;
+    padding: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.main-content {
+    grid-area: main;
+    padding: 1rem;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+/* Theme Switch */
+.theme-switch {
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#theme-toggle:checked ~ .dashboard .header,
+#theme-toggle:checked ~ .dashboard .footer {
+    background-color: #222;
+    color: #fff;
+}
+
+#theme-toggle:checked ~ .dashboard .sidebar {
+    background-color: #333;
+}
+
+#theme-toggle:checked ~ .dashboard .sidebar a {
+    color: #ccc;
+}
+
+#theme-toggle:checked ~ .dashboard .main-content {
+    background-color: #111;
+    color: #ddd;
+}
